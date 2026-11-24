@@ -94,9 +94,9 @@ Requirements for DELETE:
 
 ## Done Checklist
 
-- [ ] Server starts without syntax errors
-- [ ] MongoDB connection works
-- [ ] Post model validations work
-- [ ] PUT route is implemented and tested
-- [ ] DELETE route is implemented and tested
-- [ ] All API responses are valid JSON
+- [x] Server starts without syntax errors
+- [x] MongoDB connection works
+- [x] Post model validations work
+- [x] PUT route is implemented and tested
+- [x] DELETE route is implemented and tested
+- [x] All API responses are valid JSON

@@ -1,7 +1,7 @@
-// I took this one out as it is not necessary at the moment
-//const path = require('path');
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // adding cors to get backend and frontend to get the connection through
 require('dotenv').config();
 
 // I took this one out as this Workshop doesn't have pages (not sure if we were supposed to bring it from WS05)
@@ -10,8 +10,14 @@ const postsRouter = require('./routes/posts');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-// also this one is excluded for now to run npm and to try Postman
-//const publicDir = path.join(__dirname, 'public');
+const publicDir = path.join(__dirname, 'public');
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
+
+app.use(express.json());
+
+app.use('/api/posts', postsRouter);
 
 
 // ─── TODO: Write the connectToDatabase function ──────────────────────────────
@@ -36,23 +42,22 @@ async function connectToDatabase() {
     }
   }
 
-// app.locals.publicDir = publicDir;
+app.locals.publicDir = publicDir;
 app.use(express.json());
-//app.use(express.static(publicDir));
+app.use(express.static(publicDir));
 
+// Crashes nodemon since pageg are not used
 //app.use('/', pagesRouter);
 app.use('/api/posts', postsRouter);
 
 app.use((req, res) => {
-// no publicDir, unless WS05 files are copied
-//  res.status(404).sendFile(path.join(publicDir, '404.html'));
+res.status(404).sendFile(path.join(publicDir, '404.html'));
   return res.status(404).json({ error: 'Not found' });
 });
 
 app.use((error, req, res, next) => {
   console.error(error.stack);
-  // no publicDir unless WS05 files are copied
-  //res.status(500).sendFile(path.join(publicDir, '500.html'));
+  res.status(500).sendFile(path.join(publicDir, '500.html'));
   return res.status(500).json({ error: error.message });
 });
 

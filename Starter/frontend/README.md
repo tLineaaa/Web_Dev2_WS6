@@ -74,8 +74,8 @@ Implement the TODOs inside these files:
 - [ ] All TODOs in selected frontend files are completed
 - [x] Blog list page loads posts from API
 - [ ] New post form creates a post
-- [ ] Single post page shows one post by id
-- [ ] Edit page updates post data
-- [ ] Delete action removes a post and redirects to blog
+- [x] Single post page shows one post by id
+- [x] Edit page updates post data
+- [x] Delete action removes a post and redirects to blog
 - [ ] No console errors in browser
 - [x] App works with backend running on port 3000

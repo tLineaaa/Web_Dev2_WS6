@@ -1,4 +1,6 @@
 const express = require('express');
+// Added mongoose here so it is defined
+const mongoose = require('mongoose');
 const app = express();
 const Post = require('../models/Post');
 

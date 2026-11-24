@@ -9,17 +9,20 @@ const postSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      minlenght: 3
     },
     content: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      minlenght: 10
     },
     author: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      minlength: 3
     }
   },
   {

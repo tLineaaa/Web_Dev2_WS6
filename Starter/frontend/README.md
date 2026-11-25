@@ -71,7 +71,7 @@ Implement the TODOs inside these files:
 
 ## Done Checklist
 
-- [ ] All TODOs in selected frontend files are completed
+- [x] All TODOs in selected frontend files are completed
 - [x] Blog list page loads posts from API
 - [x] New post form creates a post
 - [x] Single post page shows one post by id
